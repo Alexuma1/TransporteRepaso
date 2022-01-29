@@ -3,7 +3,9 @@ var router = express.Router()
 
 // Ir a nosotros
 router.get('/',function(req,res,next){
-res.render('nosotros')
+res.render('nosotros',{
+    isNosotros : true
+})
 })
 
 module.exports = router;
