@@ -14,4 +14,12 @@ router.get('/',async function(req,res,next){
     })
 })
 
+// vista del formulario de agregar
+
+router.get('/agregar', function (req,res,next){
+    res.render('admin/agregar',{
+        layout:'admin/layout'
+    })
+})
+
 module.exports = router
