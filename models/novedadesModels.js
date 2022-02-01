@@ -8,15 +8,15 @@ async function getNovedades() {
 
 
 async function insertNovedad(obj) {
-    try {
-        var query = 'INSERT INTO novedades SET ?'
-        var rows = await pool.query(query,[obj])
-        return rows
-    } catch (error) {
-        console.log(error)
-        throw error
-    }
-
+    var query = 'INSERT INTO novedades SET ?'
+    var rows = await pool.query(query, [obj])
+    return rows
 }
 
-module.exports = { getNovedades , insertNovedad}
+async function eliminarNovedadByID(id){
+    var query = 'DELETE FROM novedades WHERE id= ?'
+    var rows = await pool.query(query,[id])
+    return rows
+}
+
+module.exports = { getNovedades, insertNovedad, eliminarNovedadByID }
