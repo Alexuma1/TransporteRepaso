@@ -50,4 +50,40 @@ router.get('/eliminar/:id', async function(req,res,next){
     res.redirect('/admin/novedades')
 })
 
+router.get('/editar/:id', async function (req,res,next){
+    var id = req.params.id
+    var novedad = await novedadesModel.getNovedadesByID(id)
+    res.render('admin/editar',{
+        layout:'admin/layout',
+        novedad
+    })
+})
+
+router.post('/editar', async function (req,res,next){
+    try {
+        var obj={
+            titulo:req.body.titulo,
+            subtitulo:req.body.subtitulo,
+            cuerpo:req.body.cuerpo
+        }
+        if(req.body.titulo != "" && req.body.subtitulo != "" && req.body.cuerpo != ""){
+            await novedadesModel.editarNovedadByID(obj,req.body.id)
+            res.redirect('/admin/novedades')
+        }else{
+            res.render('admin/editar',{
+                layout:'admin/layout',
+                error: true,
+                message: 'Todos los campos son requeridos'
+            })
+        }
+    } catch (error) {
+        console.log(error)
+        res.render('admin/editar',{
+            layout:'admin/layout',
+            error: true,
+            message: 'No se edito la novedad'
+        })
+    }
+})
+
 module.exports = router
