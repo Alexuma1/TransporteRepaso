@@ -1,27 +1,14 @@
 <main class="contenedor">
+    {{#each novedades}}
         <h2>Novedades</h2>
         <div class="novedades">
-            <h3>Titulo</h3>
-            <h4>Subtitulo</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ea temporibus veniam ab amet nihil ipsum sunt eum nesciunt quasi voluptatem, ipsa nam velit, ad quis, sed quam quisquam incidunt!</p>
+            <h3>{{titulo}}</h3>
+            <h4>{{subtitulo}}</h4>
+            {{#if imagen}}
+            <img src="{{imagen}}">
+            {{/if}}
+            <p>{{cuerpo}}</p>
             <hr>
         </div>
-        <div class="novedades">
-            <h3>Titulo</h3>
-            <h4>Subtitulo</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ea temporibus veniam ab amet nihil ipsum sunt eum nesciunt quasi voluptatem, ipsa nam velit, ad quis, sed quam quisquam incidunt!</p>
-            <hr>
-        </div>
-        <div class="novedades">
-            <h3>Titulo</h3>
-            <h4>Subtitulo</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ea temporibus veniam ab amet nihil ipsum sunt eum nesciunt quasi voluptatem, ipsa nam velit, ad quis, sed quam quisquam incidunt!</p>
-            <hr>
-        </div>
-        <div class="novedades">
-            <h3>Titulo</h3>
-            <h4>Subtitulo</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ea temporibus veniam ab amet nihil ipsum sunt eum nesciunt quasi voluptatem, ipsa nam velit, ad quis, sed quam quisquam incidunt!</p>
-            <hr>
-        </div>
+        {{/each}}
     </main>
