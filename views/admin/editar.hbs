@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col">
             <h2>Editar Novedades</h2>
-            <form action="/admin/novedades/editar" method="post">
+            <form action="/admin/novedades/editar" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id" value={{novedad.id}} />
                 <div class="mb-3">
                     <input type="text" class="form-control" id="titulo" placeholder="Titulo" name="titulo"
@@ -11,6 +11,13 @@
                 <div class="mb-3">
                     <textarea type="text" class="form-control" id="subtitulo" placeholder="Subtitulo"
                         name="subtitulo">{{novedad.subtitulo}}</textarea>
+                </div>
+                <div class="mb-3">
+                    <p>Imagen <input type="file" name="imagen"></p>
+                    <p>
+                        <label><input type="checkbox" name="img_delete" value="1">¿Eliminar la imagen actual?</label>
+                        <input type="hidden" name="img_original" value="{{novedad.img_id}}">
+                    </p>
                 </div>
                 <div class="mb-3">
                     <textarea type="text" class="form-control" id="cuerpo" placeholder="Cuerpo"
